@@ -1,0 +1,133 @@
+康刘勇
+
+less基于nodejs
+
+查看node版本
+node -v
+
+npm: nodejs包管理器
+查看npm 版本
+npm -v
+
+
+gitbash常用命令
+进入盘符
+cd /d
+
+查看文件夹和文件
+ls
+
+查看文件夹和文件（包括隐藏文件）
+ls -a
+
+进入文件夹
+cd ./文件夹名称
+
+创建文件
+touch 文件名1 文件名2 文件名3
+
+删除文件
+rm 文件名
+
+创建文件夹
+mkdir 文件夹名1 文件夹名2
+
+跳出文件夹, ..表示跳出一级文件夹
+cd ..
+
+跳出两级文件夹
+cd ../..
+
+删除文件夹 -r: 递归，-f: 强制 （慎用）
+rm -rf 文件夹名
+
+查看文件内容
+cat 文件名称
+
+编辑文件
+vim 文件名称
+先按下键盘 i 键，进入编辑模式
+通过键盘上下左右箭头改变鼠标光标位置
+按下键盘 esc键退出编辑模式
+输入:wq，回车保存退出
+输入:q!，回车退出不保存
+
+移动文件
+mv 旧文件路径 新文件路径
+
+修改文件夹名称或者文件名称
+mv 旧文件(夹)名 新文件(夹)名
+
+终止进程
+ctrl + c
+
+回到最初始目录
+cd ~
+
+全局安装less
+-g: 全局
+install简写 i
+npm install less -g
+npm install -g less
+
+npm i -g less
+
+浏览器只识别css文件，不能识别less文件，sass文件
+
+查看less版本
+lessc -v
+
+less: css预处理器, 加入变量，函数，混合，继承，运行环境基于nodejs
+文件后缀
+.less
+
+sass: css预处理器, 运行环境基于ruby
+文件夹后缀
+.sass
+.scss
+
+stylus: css预处理器
+
+手动编译less文件
+lessc less文件路径 输出css文件路径
+
+压缩版本
+lessc -x less文件路径 输出css文件路径
+
+"less.compile": { 
+  "compress":true, 
+  "outExt": ".min.css", 
+  "out": "${workspaceRoot}\\public\\css\\" 
+  }
+
+解释说明
+
+"compress":true 压缩
+
+"outExt": ".min.css" 输出文件扩展名
+
+"out": "${workspaceRoot}\\public\\css\\" 输出文件路径，其中public和css根据实际项目设置
+
+vs code 安装插件
+easy less: 自动变less插件
+open in browser: 在编辑使用浏览器打开html文件插件
+live server: 本地服务
+
+导入less或者css
+如果导入less文件可以省略文件后缀
+如果导入css文件不可以省略文件后缀
+
+格式化日期 2019+8@09 23$12*05
+'yyyy+M@dd hh$mm*ss'
+Date.prototype.format = (format) {
+  //format: 日期格式
+}
+
+  ; //2019-09-10 09:19:21
+new.Date().format('yyyy-M-dd hh:m:ss'); //2019-9-10 09:19:21
+new.Date().format('yyyy$M-dd hh:m&ss'); //2019$9-10 09:19&21
+
+var date = new Date();
+
+var result = date.format('yyyy-MM-dd hh:mm:ss');
+console.log('result ==> ', result);

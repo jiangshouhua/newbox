@@ -1,0 +1,158 @@
+@import "./less/variable";
+
+@import "@{baseurl}/test";
+
+@import "../css/main.css";
+
+.item{
+  border: 1px solid #000;
+  width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.box{
+  font-size: 20px;
+  background-color: @c;
+  border: @w solid @c;
+  color: #fff;
+}
+
+.@{selector}{
+  width: 200px;
+  height: 100px;
+  background: #000;
+}
+
+.head1{
+  width: 300px;
+  height: 300px;
+  background: url("@{url}aaa.jpg") no-repeat 0 0;
+  background-size: cover;
+}
+
+.head2{
+  width: 300px;
+  height: 300px;
+  background: url("@{url}bbb.jpg") no-repeat 0 0;
+  @{bs}: cover;
+}
+
+.head3{
+  overflow: hidden;
+}
+.head3::before{
+  float: left;
+  content: @@var;
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #e49;
+}
+
+.head3::after{
+  float: left;
+  content: '';
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-color: #000;
+}
+
+//extend
+.bx{
+  width: 200px;
+  height: 200px;
+  transition: box-shadow .3s linear 0s;
+}
+
+.by{
+  border: 1px solid #e4393c;
+}
+
+.head4{
+  &:extend(.bx);
+  &:extend(.by);
+  border-radius: 50%;
+}
+
+.head4:hover{
+  box-shadow: 0px 0px 0px 40px rgba(0, 0, 0, .2) inset;
+}
+
+.head5:extend(.bx){
+  background-color: #333;
+}
+
+.head5.he{
+  color: #fcdea1;
+}
+
+.head6:extend(.head5.he){
+
+}
+
+//混合
+#bx{
+  color: @c;
+}
+
+.x{
+  background-color: #000;
+}
+
+//具有默认的参数
+.y(@w1:200px, @h1:200px){
+  width: @w1;
+  height: @h1;
+}
+
+//没有默认值的参数
+.z(@width, @type, @color){
+  border: @width @type @color;
+}
+
+.head7{
+  #bx;
+  .x;
+  .y(150px, 150px);
+  .z(3px, dashed, @c)
+}
+
+//嵌套
+/*
+.main>span{
+
+}
+
+.main>span a{
+
+}
+
+.main>p{
+
+}
+*/
+
+.main{
+  width: 200px;
+  height: 200px;
+  border: 1px solid #e4393c;
+  >span{
+    color: #f00;
+    a{
+      text-decoration: line-through;
+    }
+  }
+  >p{
+    color: #f0f;
+    &:hover{
+      font-size: 32px;
+    }
+  }
+
+  &:hover{
+    background-color: #fcdea1;
+  }
+}
+
